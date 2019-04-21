@@ -1,0 +1,16 @@
+{
+	"type": "object",
+	"properties": {
+		"sourceRoot": {
+			"type": [
+				"string"
+			]
+		},
+		"crateRoot": {
+			"type": [
+				"string"
+			]
+		}
+	},
+	"additionalProperties": false
+}

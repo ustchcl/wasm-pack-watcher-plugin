@@ -1,6 +1,6 @@
 {
   "name": "wasm-pack-watcher-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "watch and auto-compile rust source code to wasm using wasm-pack",
   "main": "index.js",
   "scripts": {
