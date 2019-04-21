@@ -25,6 +25,6 @@ module.exports = {
 
 ```
 
-The plugin will watch `./rs` for file changes, and execute `wasm-pack --release` in `./`.
+The plugin will watch `./rs` for file changes, and execute `wasm-pack build --release` in `./`.
 
 Please ensure wasm-pack is in your $PATH. 
