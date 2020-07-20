@@ -21,7 +21,7 @@ class WasmPackWatcherPlugin {
 	}
 	apply() {
 		watch([
-            path.resolve(this.options.sourceRoot, "Cargo.toml")
+            path.resolve(this.options.sourceRoot, "Cargo.toml"),
             path.resolve(this.options.sourceRoot, "src")
         ], { recursive: true, filters: /\.(rs|toml)$/}, (evt, name) => {
             console.log(`There are new changes in '${name}'. Start to rebuild rustwasm sources`)
