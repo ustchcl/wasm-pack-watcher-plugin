@@ -20,7 +20,7 @@ class WasmPackWatcherPlugin {
 	}
 	apply() {
 		watch(this.options.sourceRoot, { recursive: true }, (evt, name) => {
-			const { status: err, pid } = cp.spawnSync('wasm-pack', ['build', '--' + this.options.mode], {
+			const { status: err, pid } = cp.spawnSync('wasm-pack', ['build', '--' + this.options.mode, '--target', this.options.target], {
 				cwd: this.options.crateRoot,
 				stdio: "inherit"
 			})
