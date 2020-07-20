@@ -19,7 +19,11 @@ class WasmPackWatcherPlugin {
 		this.options = options
 	}
 	apply() {
-		watch(this.options.sourceRoot, { recursive: true }, (evt, name) => {
+		watch([
+            path.resolve(this.options.sourceRoot, "Cargo.toml")
+            path.resolve(this.options.sourceRoot, "src")
+        ], { recursive: true }, (evt, name) => {
+            console.log(`There are new changes in '${name}'. Start to rebuild rustwasm sources`)
 			const { status: err, pid } = cp.spawnSync('wasm-pack', ['build', '--' + this.options.mode, '--target', this.options.target], {
 				cwd: this.options.crateRoot,
 				stdio: "inherit"

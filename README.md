@@ -1,5 +1,9 @@
 # Usage
 
+UPDATE： 07-21-2020
+watch `Cargo.toml` and the `src` dictionary
+
+
 ```bash
 $ yarn add -D wasm-pack-watcher-plugin
 ```
