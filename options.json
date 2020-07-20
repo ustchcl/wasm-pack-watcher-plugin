@@ -20,6 +20,11 @@
 			"type": [
 				"string"
 			]
+		},
+		"output": {
+			"type": [
+				"string"
+			]
 		}
 	},
 	"additionalProperties": false

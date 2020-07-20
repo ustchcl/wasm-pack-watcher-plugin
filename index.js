@@ -12,7 +12,8 @@ class WasmPackWatcherPlugin {
 			...{
 				sourceRoot: path.resolve(process.cwd(), 'src'),
 				crateRoot: process.cwd(),
-				mode: 'release'
+				mode: 'release',
+                output: path.resolve(process.cwd, 'pkg'),
 			}, ...options
 		}
 		validateOptions(require('./options.json'), options, Plugin)
@@ -22,10 +23,10 @@ class WasmPackWatcherPlugin {
 		watch([
             path.resolve(this.options.sourceRoot, "Cargo.toml")
             path.resolve(this.options.sourceRoot, "src")
-        ], { recursive: true }, (evt, name) => {
+        ], { recursive: true, filters: /\.(rs|toml)$/}, (evt, name) => {
             console.log(`There are new changes in '${name}'. Start to rebuild rustwasm sources`)
-			const { status: err, pid } = cp.spawnSync('wasm-pack', ['build', '--' + this.options.mode, '--target', this.options.target], {
-				cwd: this.options.crateRoot,
+			const { status: err, pid } = cp.spawnSync('wasm-pack', ['build', '--' + this.options.mode, '--target', this.options.target, '--out-dir', this.options.output], {
+                cwd: this.options.crateRoot,
 				stdio: "inherit"
 			})
 		})
