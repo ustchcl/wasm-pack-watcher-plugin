@@ -13,7 +13,7 @@ class WasmPackWatcherPlugin {
 				sourceRoot: path.resolve(process.cwd(), 'src'),
 				crateRoot: process.cwd(),
 				mode: 'release',
-                output: path.resolve(process.cwd, 'pkg'),
+                output: path.resolve(process.cwd(), 'pkg'),
 			}, ...options
 		}
 		validateOptions(require('./options.json'), options, Plugin)
